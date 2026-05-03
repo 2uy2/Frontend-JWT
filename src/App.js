@@ -3,8 +3,9 @@ import './App.scss';
 import Login from './components/Login/Login';
 import Nav from './components/Navigation/Nav';
 import Register from './components/Register/Register';
-
+import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css'
 function App() {
   return (
     <Router>
@@ -34,6 +35,18 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        
+      />
     </Router>
     
   );
