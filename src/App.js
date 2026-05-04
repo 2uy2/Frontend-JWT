@@ -8,7 +8,8 @@ import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css'
 import { useEffect, useState } from 'react';
-import _ from "lodash";
+
+import AppRoutes from './routes/AppRoutes.js';
 function App() {
   const [account,setAccount]=useState({});
   useEffect(()=>{
@@ -19,38 +20,14 @@ function App() {
     }
   },[])
   return (
-    <Router>
-      <div className='app-container'>
-        {account && !_.isEmpty(account) && account.isAuthenticated &&
+    <>
+      <Router>
+      <div className='app-header'>
         <Nav/>
-        }
+      </div>
+      <div className='app-container'>
+        <AppRoutes/>  
         
-        <Switch>
-          <Route path="/news">
-            news
-          </Route>
-          <Route path="/about">
-            about
-          </Route>
-          <Route path="/contact">
-            contact
-          </Route>
-          <Route path="/" exact>
-            home
-          </Route>
-          <Route path="/login" >
-            <Login/>
-          </Route>
-          <Route path="/register" >
-            <Register/>
-          </Route>
-          <Route path="/users" >
-            <Users/>
-          </Route>
-          <Route path="*" >
-            404 not found
-          </Route>
-        </Switch>
       </div>
       <ToastContainer
         position="top-right"
@@ -65,6 +42,8 @@ function App() {
         
       />
     </Router>
+    </>
+    
     
   );
 }
