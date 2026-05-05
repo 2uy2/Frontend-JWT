@@ -5,7 +5,7 @@ import { useLocation ,NavLink} from 'react-router-dom/cjs/react-router-dom.min';
 const Nav=(props) =>{
     const [isShow,setIsShow]=useState(false);
     let location = useLocation();
-    console.log(location)
+    
     useEffect(()=>{
 
          let session =sessionStorage.getItem('account');
